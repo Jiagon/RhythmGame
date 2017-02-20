@@ -17,7 +17,7 @@ public class DestroyNote : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         Debug.Log(col.gameObject.tag);
-        if(col.gameObject.tag == "Note")
+        if(col.gameObject.tag.Equals("Note"))
         {
             Destroy(col.gameObject);
             Debug.Log("Gameobject destroyed.");
