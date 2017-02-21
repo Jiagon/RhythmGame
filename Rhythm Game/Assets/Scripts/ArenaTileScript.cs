@@ -28,11 +28,17 @@ public class ArenaTileScript : MonoBehaviour {
     void Update() {
 
         switch (dangerState) {
-            case 0: GetComponentInChildren<Renderer>().material = safe;
+            case 0:
+                GetComponentInChildren<Renderer>().material = safe;
+                Debug.Log("danger state is safe");
                 break;
-            case 1: GetComponentInChildren<Renderer>().material = danger;
+            case 1:
+                GetComponentInChildren<Renderer>().material = danger;
+                Debug.Log("danger state is danger");
                 break;
-            case 2: GetComponentInChildren<Renderer>().material = hurt;
+            case 2:
+                GetComponentInChildren<Renderer>().material = hurt;
+                Debug.Log("danger state is hurt");
                 break;
     }
     }
