@@ -46,7 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ArenaTileDanger.cs" />
      <Compile Include="Assets\Scripts\ArenaTileScript.cs" />
      <Compile Include="Assets\Scripts\AvatarMovementScript.cs" />
      <Compile Include="Assets\Scripts\DestroyNote.cs" />
