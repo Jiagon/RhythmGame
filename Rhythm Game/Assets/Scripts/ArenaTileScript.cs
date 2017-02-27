@@ -32,16 +32,16 @@ public class ArenaTileScript : MonoBehaviour {
         switch (dangerState) {
             case 0:
                 GetComponentInChildren<Renderer>().material = safe;
-                Debug.Log("danger state is safe");
+                //Debug.Log("danger state is safe");
                 break;
             case 1:
                 GetComponentInChildren<Renderer>().material = danger;
-                Debug.Log("danger state is danger");
+                //Debug.Log("danger state is danger");
 
                 if(dangerTimer > 0)
                 {
                     dangerTimer -= Time.deltaTime;
-                    Debug.Log("Danger timer:" + dangerTimer);
+                    //Debug.Log("Danger timer:" + dangerTimer);
                 }
                 else
                 {
@@ -53,12 +53,12 @@ public class ArenaTileScript : MonoBehaviour {
                 break;
             case 2:
                 GetComponentInChildren<Renderer>().material = hurt;
-                Debug.Log("danger state is hurt");
+                //Debug.Log("danger state is hurt");
 
                 if(hurtTimer > 0)
                 {
                     hurtTimer -= Time.deltaTime;
-                    Debug.Log("Hurt timer:" + hurtTimer);
+                    //Debug.Log("Hurt timer:" + hurtTimer);
                 }
                 else
                 {
@@ -79,6 +79,34 @@ public class ArenaTileScript : MonoBehaviour {
         {
             Debug.Log("Colliding with active space at (" + this + ")");
 
+        }
+    }
+    
+    public int DangerState
+    {
+        get { return dangerState; }
+        set
+        {
+            if(value >0 && value < 3)
+            dangerState = value;
+        }
+    }
+
+    public float DangerDuration
+    {
+        get { return dangerDuration; }
+        set
+        {
+            dangerDuration = value;
+        }
+    }
+
+    public float HurtDuration
+    {
+        get { return hurtDuration; }
+        set
+        {
+            hurtDuration = value;
         }
     }
 }
