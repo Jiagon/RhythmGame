@@ -49,7 +49,7 @@ public class TileManagerScript : MonoBehaviour {
         activeTileScript = activeTile.GetComponent<ArenaTileScript>();
         activeTileScript.DangerDuration = dangerTime;
         activeTileScript.HurtDuration = hurtTime;
-        activeTileScript.DangerState = 1; //Set danger state to danger;
+        activeTileScript.State = 1; //Set danger state to danger;
         
     }
 

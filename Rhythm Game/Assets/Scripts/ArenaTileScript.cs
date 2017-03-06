@@ -6,7 +6,7 @@ public class ArenaTileScript : MonoBehaviour {
 
 
     [SerializeField]
-    int dangerState = 0; //0 safe, 1 caution, 2 hurt
+    int state = 0; //0 safe, 1 caution, 2 hurt
     [SerializeField]
     Material safe, danger, hurt;
 
@@ -29,7 +29,7 @@ public class ArenaTileScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        switch (dangerState) {
+        switch (state) {
             case 0:
                 GetComponentInChildren<Renderer>().material = safe;
                 //Debug.Log("danger state is safe");
@@ -46,7 +46,7 @@ public class ArenaTileScript : MonoBehaviour {
                 else
                 {
                     dangerTimer = dangerDuration;
-                    dangerState = 2; // it is now time to hurt the player if they are standing on it.
+                    state = 2; // it is now time to hurt the player if they are standing on it.
                     
                 }
 
@@ -63,7 +63,7 @@ public class ArenaTileScript : MonoBehaviour {
                 else
                 {
                     hurtTimer = hurtDuration;
-                    dangerState = 0; // hurting time is done, reset back to the safe position.
+                    state = 0; // hurting time is done, reset back to the safe position.
                 }
 
 
@@ -75,20 +75,20 @@ public class ArenaTileScript : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (dangerState == 2)
+        if (state == 2)
         {
             Debug.Log("Colliding with active space at (" + this + ")");
 
         }
     }
     
-    public int DangerState
+    public int State
     {
-        get { return dangerState; }
+        get { return state; }
         set
         {
             if(value >0 && value < 3)
-            dangerState = value;
+            state = value;
         }
     }
 
